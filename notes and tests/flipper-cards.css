@@ -1,0 +1,62 @@
+
+/*  IMAGES  */
+.flipFront img{
+	width: 100%;
+	height: 100%;}
+.grid {
+	display: flex;
+	flex-flow: column wrap;
+	width: 100vw;
+	height: auto;
+	border: blue;
+}
+
+/*flipper*/
+/* referece: https://davidwalsh.name/css-flip AND https://www.youtube.com/watch?v=OV8MVmtgmoY  */
+.card{
+	position: relative;
+	transform-style: preserve-3d;
+	transition: all 0.5s ease;
+}
+.flipFront{
+	position: relative;
+	backface-visibility: hidden;
+	background: tomato;
+}
+.flipBack{
+	position: relative;
+	width: 100%;
+	background-image:url("assets/300x300.png");
+	background-size: 100%;
+	backface-visibility: hidden;
+	transform: rotateY(180deg);
+}
+.flipper{
+	z-index: 3;
+}
+.flipper:active .card{
+	transform: rotateY(180deg);
+}
+.flipper:active .flipFront{
+	display: none;}
+.flipper:active .flipBack{
+	width: 100%;
+	background-size: 100%;
+}
+.onTop{
+	z-index: 2;
+	position: absolute;
+}
+
+
+/*tablet*/
+@media screen and (min-width: 768px) {
+	.mqID::after {
+		content: "tablet";
+		background-color: #ff80ff;
+	}
+.grid{
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}}

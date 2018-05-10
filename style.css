@@ -1,0 +1,287 @@
+/* Global*/
+
+* {
+	box-sizing: border-box;
+}
+
+/*End: Global*/
+
+/*Media Query Identifiers*/
+
+.mqID::after {
+	z-index: 2;
+	content: "mobile";
+	display: inline-block;
+	background-color: #ffccff;
+	padding: 5px 20px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: white;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+	.mqID::after {
+		content: "tablet";
+		background-color: #ff80ff;
+	}
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1100px) {
+	.mqID::after {
+		content: "desktop";
+		background-color: #ff33ff;
+	}
+}
+
+/*END: Media Query Identifiers*/
+
+/*Center some text for mobile*/
+
+footer,
+nav,
+h1,
+h2,
+.onTop {
+	text-align: center;
+}
+
+/*HOME PAGE*/
+
+/*background*/
+
+body {
+	width: 100vw;
+	margin: 0;
+}
+
+/*HEADER*/
+
+#headerLogo {
+	width: 100vw;
+}
+
+header {
+	background-image: url(assets/teal-texture.PNG);
+	background-position-x: 100%;
+}
+
+nav {
+	background: black;
+	width: 100vw;
+	height: 2.5rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-content: space-around;
+}
+
+nav a {
+	display: flex;
+	align-self: center;
+	text-decoration: none;
+	color: white;
+	font: 1.5rem 'Gill Sans';
+}
+
+nav a:hover {
+	color: rgb(255, 238, 0);
+}
+
+@media screen and (min-width: 768px) {
+	#headerLogo {
+		width: 30%;
+	}
+	header {
+		position: relative;
+		width: 100vw;
+		display: flex;
+		flex-flow: row nowrap;
+		border-bottom: 6px black solid;
+	}
+	nav {
+		position: absolute;
+		right: 2rem;
+		bottom: 0;
+		width: 30%;
+		background: none;
+	}
+	nav a {
+		color: black;
+		text-decoration: none;
+		font: 10em;
+	}
+	.navSection {
+		padding: 0 1rem;
+	}
+	.navSection:hover {
+		background: black;
+	}
+	.navSection:hover>a {
+		color: rgb(255, 238, 0);
+	}
+}
+/*SEARCH BOX*/
+.filterContainer {
+	position: relative;
+	background: black;
+	height: 2rem;
+	padding: .3rem;
+	display: table;
+	width: 100%
+}
+
+.filterContainer input[type=text],button {
+	display: table-cell;
+}
+#searchbar{
+	width: 100%;
+}
+.filterContainer input[type=text]{
+	max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.filterContainer{
+		position: absolute;
+		bottom: -2rem;
+	}
+}
+
+
+/*  IMAGES  */
+
+.recepieSlot {
+	height: 15rem;
+	background-image: url("assets/300x300.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding-top: 100%;
+	/* 1:1 Aspect Ratio */
+	position: relative;
+	max-height: 100%;
+}
+
+.grid {
+	display: flex;
+	flex-flow: column wrap;
+	width: 100vw;
+	height: auto;
+	border: blue;
+	align-items: space-around;
+	grid-column-gap: 1rem;
+}
+
+.onTop {
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+/*tablet*/
+
+@media screen and (min-width: 768px) {
+	.mqID::after {
+		content: "tablet";
+		background-color: #ff80ff;
+	
+	}
+	.recepieSlot {
+		width: 30%;
+		padding-top: 0;
+		background-size: 100%;
+	}
+	.grid {
+		padding: 2rem;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		grid-row-gap:1rem;
+	}
+}
+
+footer {
+	background-color: black;
+	color: rgb(255, 238, 0);
+}
+
+.footerLinks a {
+	color: rgb(255, 238, 0);
+}
+
+/*END: HOME PAGE*/
+
+/*RECEPIE PAGE*/
+
+/*center some text*/
+
+.description,
+.tags {
+	text-align: center;
+}
+
+/*description*/
+
+.recipeMainPic{
+	width: 100vw;
+	height: auto;
+}
+.title{
+	background-color: teal;
+
+	}
+.description {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.description-container {
+	background-image: url(#);
+}
+
+/*END:RECEPIE PAGE*/
+
+/*ABOUT PAGE*/
+.aboutContainer {
+	width: 70vw;
+	margin: 0 auto;
+	padding: 1rem 0;
+}
+/*END:ABOUT PAGE*/
+
+/*HELP PAGE*/
+#helpContainer {
+	visibility: hidden;
+	width: 80%;
+	z-index: 2;
+	background-color: teal;
+	padding: 1rem;
+    position: absolute;
+    left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.close{
+	background: none;
+	border: 1 px rgb(255, 238, 0);
+	color: rgb(255, 238, 0);
+	
+}
+#Xclose{
+	position: absolute;
+	right:10px;
+	top: 10px;
+}
+.show #helpContainer  {
+    visibility: visible;
+}
+
+/*END:HELP PAGE*/

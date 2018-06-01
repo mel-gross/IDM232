@@ -1,32 +1,6 @@
    
+<?php include "dbConnect-include.php"; ?>     
 <?php
-// Create database connection- conditional: works both locally and remotely
-$host = $_SERVER['HTTP_HOST'];
-if ($host == 'localhost:8888') {
-  // Local database credentials
-  $dbhost = "localhost";
-  $dbuser = "root";
-  $dbpass = "root";
-  $dbname = "pronto";
-}
-else {
-  // Remote database credentials
-  $dbhost = "localhost";
-  $dbuser = "melgross_idm232";
-  $dbpass = "AND1389mel";
-  $dbname = "melgross_pronto";
-}
-
-$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-
-if (mysqli_connect_errno()) {
-  die("Database connection failed: " .
-    mysqli_connect_error() .
-    " (" . mysqli_connect_errno() . ")"
-  );
-}
-
-
 //Database Query of the entire main table and storing its results in the $mainresult
 $main = "main"; //selecting from the main table and storing that into the var $main
 $mainquery= "SELECT * FROM {$main}"; //selects all columns from main table

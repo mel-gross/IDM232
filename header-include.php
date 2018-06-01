@@ -9,14 +9,16 @@
             <a href="index.html">Home</a>
         </div>
         <div class="navSection">
-        <a href="recipes.html">Recipes</a>
-    </div>
-    </nav>
+            <a href="recipes.html">Recipes</a>
+        </div>
+    </nav> 
     <div class="filterContainer">
-        <form action="/action_page.php">
-             <input type="text" name="search" id="searchbar" placeholder="Search..." >
-             <button type="submit">Submit</button>
-            </form>
+        <div id="searchbar">
+        <form action="/action_page.php" >
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     </div>
 </header>"
 ?>

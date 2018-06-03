@@ -1,0 +1,114 @@
+id,key,tag
+1,1,easy
+2,1,full of flavor
+3,1,fruit
+4,2,comfort food
+5,2,fancy
+6,2,stovetop
+7,3,vegetarian
+8,3,easy
+9,3,cold
+10,4,cheesy 
+11,4,oven
+12,4,vegetarian
+13,5,vegetarian
+14,5,comfort food
+15,5,easy
+16,6,vegetarian
+17,6,full of flavor
+18,6,stovetop
+19,7,cheesy 
+20,7,vegetarian
+21,7,oven
+22,8,cold
+23,8,easy
+24,8,comfort food
+25,9,asian
+26,9,stir fry
+27,9,full of flavor
+28,10,asian
+29,10,stovetop
+30,10,full of flavor
+31,11,vegetables
+32,11,full of flavor
+33,11,seafood
+34,12,cheesy 
+35,12,oven
+36,12,vegetarian
+37,13,vegetarian
+38,13,easy
+39,13,mexican
+40,14,cheesy 
+41,14,full of flavor
+42,14,easy
+43,15,burger
+44,15,cheesy 
+45,15,comfort food
+46,16,mexican
+47,16,full of flavor
+48,16,roast
+49,17,vegetarian
+50,17,vegetables
+51,17,roast
+52,18,vegetarian
+53,18,vegetables
+54,18,roast
+55,19,vegetarian
+56,19,vegetables
+57,19,roast
+58,20,full of flavor
+59,20,vegetables
+60,20,roast
+61,21,roast
+62,21,fancy
+63,21,vegetables
+64,22,pasta
+65,22,vegetables
+66,22,vegetarian
+67,23,stew
+68,23,asian
+69,23,roast
+70,24,vegetables
+71,24,roast
+72,24,full of flavor
+73,25,sweet
+74,25,vegetabes
+75,25,seafood
+76,26,sweet
+77,26,full of flavor
+78,26,oven
+79,26,comfort food
+80,27,oven
+81,27,steak
+82,27,salad
+83,28,oven
+84,28,asian
+85,28,burger
+86,29,spicy
+87,29,pasta
+88,29,seafood
+89,30,vegetarian
+90,30,cheesy
+91,30,pizza
+92,31,salad
+93,31,southwest
+94,31,spicy
+95,32,stovetop
+96,32,spicy
+97,32,asian
+98,33,asian
+99,33,sweet
+100,33,vegetarian
+101,33,stir fry
+102,34,spicy
+103,34,stir fry
+104,34,asian
+105,35,healthy
+106,35,fancy
+107,35,seafood
+108,36,spicy
+109,36,stir fry
+110,36,asian
+111,37,stew
+112,37,comfort food
+113,37,stovetop

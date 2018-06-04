@@ -10,7 +10,7 @@ $mainresult = mysqli_query($connection, $mainquery);
 if (!$mainresult) {
     die ("Database query failed.");
 }
-?> 
+?>
 <!DOCTYPE html>
     <html lang="en">
 
@@ -28,7 +28,7 @@ if (!$mainresult) {
                     <div class="recipeGrid">
                     <?php while ($row = mysqli_fetch_assoc($mainresult)){ ?> <!-- open main while loop -->
                         <div class="recipeSlot">
-                        <img src="assets/images/<?php echo $row['thumbnail'];?>.jpg" alt="Recipe Thumbnail" width="200">
+                        <img src="assets/<?php echo $row['thumbnail'];?>.jpg" width="200" alt="Recipe Thumbnail">
                             <div class="onTop">
                                 <h1><?php echo $row['title']; ?></h1>
                                 <p><?php echo $row['subtitle']; ?></p>

@@ -27,13 +27,15 @@ if (!$mainresult) {
                 <main>
                     <div class="recipeGrid">
                     <?php while ($row = mysqli_fetch_assoc($mainresult)){ ?> <!-- open main while loop -->
+                        <a href="recipes.php?id=<?php echo $row['id']; ?>">
                         <div class="recipeSlot">
-                        <img src="assets/<?php echo $row['thumbnail'];?>.jpg" width="200" alt="Recipe Thumbnail">
+                        <img src="assets/<?php echo $row['thumbnail'];?>.jpg" width="400" alt="Recipe Thumbnail">
                             <div class="onTop">
                                 <h1><?php echo $row['title']; ?></h1>
                                 <p><?php echo $row['subtitle']; ?></p>
                             </div>
                         </div>
+                        </a>
                         <?php } ?>  <!--closing the main while loop -->
                     </div>
                 </main>

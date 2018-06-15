@@ -9,16 +9,8 @@ echo '<header>
             <a href="index.php">Home</a>
         </div>
         <div class="navSection">
-            <a href="recipes.php">Recipes</a>
+            <a href="recipes.php">All Recipes</a>
         </div>
     </nav> 
-    <div class="filterContainer">
-        <div id="searchbar">
-        <form action="action_page.php" id="search_form" method="GET">
-            <input type="text" name="keyword" placeholder="Search...">
-            <button type="submit" name="search_submit" value="Send">Submit</button>
-        </form>
-    </div>
-    </div>
-</header>'; 
+    </div>'; 
 ?>

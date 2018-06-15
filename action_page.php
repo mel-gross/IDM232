@@ -1,25 +1,36 @@
-<?php include "dbConnect-include.php"; 
+<?php   // Local database credentials
+  $dbhost = "localhost";
+  $dbuser = "root";
+  $dbpass = "root";
+  $dbname = "melgross_pronto";
+
+$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
+if (mysqli_connect_errno()) {
+  die("Database connection failed: " .
+    mysqli_connect_error() .
+    " (" . mysqli_connect_errno() . ")"
+  );
+}
 
 //grabing searched words from searchbar form ($search_input)
-$search_input= $_REQUEST['keyword'];
+$search_input= $_GET['keyword'];
 $search_results = explode (" ",$search_input);
 if (!$search_results) {
     echo 'No results';
     exit;
 }
-print_r(array_values($search_results));
 //search keywords array ($search_results)
-$main = "main"; 
-$tags = "tags"; 
-$ingredients = "ingredients"; 
-$directions = "directions"; 
+$ids = [];
+$counter = 0;  
+$table = "main"; 
+$result = mysqli_query($connection,"SELECT id FROM 'main'");
+if (!$result) {
+    echo 'Could not run query: ' . mysqli_error();
+    exit;
+}
 
-$search_query = "SELECT * FROM main AND tags AND ingredients AND directions WHERE title OR subtitle OR ingredient OR tag OR step  LIKE '%" . $search_results . "%' ";
-$query_result = mysqli_query($connection,$search_query);
 
-$test = array($query_result);
-print_r(array_values($test));
-while($row=mysql_fetch_assoc($query_result)){ 
 ?>
 
 <!DOCTYPE html>
@@ -29,34 +40,16 @@ while($row=mysql_fetch_assoc($query_result)){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <title>Pronto!</title>
 </head>
 
 <body>
     <?php include 'header-include.php'; ?>
-    <main>
-    <div class="recipeGrid">
-                        <a href="recipes.php?id=<?php echo $row['id']; ?>">
-                        <div class="recipeSlot">
-                        <img src="assets/<?php echo $row['thumbnail'];?>.jpg" width="400" alt="Recipe Thumbnail">
-                            <div class="onTop">
-                                <h1><?php echo $row['title']; ?></h1>
-                                <p><?php echo $row['subtitle']; ?></p>
-                            </div>
-                        </div>
-                        </a>
-                        <?php } ?>  <!--closing the main while loop -->
-                    </div>
-    </main>    
-    <?php include "footer-include.php"; ?>
+   
+    <?php include "footer-include.php"; 
+    mysqli_free_result($result);
+	mysqli_close($connection); ?>
 </body>
 
-
 </html>
-    
-<?php
-// Release Returned Data + Close Connection
-	mysqli_free_result($query_result);
-	mysqli_close($connection);
-?>

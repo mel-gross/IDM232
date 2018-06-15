@@ -1,5 +1,5 @@
 /*---------------------Global--------------------*/
-
+ 
 * {
 	box-sizing: border-box;
 }
@@ -225,6 +225,7 @@ footer {
 	display: grid;
 	grid-template-columns: 1fr 3fr;
 }
+/*QUESTION*/
 .ingredients{
 	position: sticky;
 	grid-column-start: 1-start;
@@ -242,6 +243,11 @@ footer {
 	height: auto;
 	float: none;
 }
+}
+@media screen and (max-width: 760px){
+	.instructions{
+		padding: 0 .5rem 0 .5rem;
+	}
 }
 
 

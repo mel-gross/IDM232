@@ -1,52 +1,66 @@
-   
-<?php include "dbConnect-include.php"; ?>     
-<?php
-//Database Query of the entire main table and storing its results in the $mainresult
-$main = "main"; //selecting from the main table and storing that into the var $main
-$mainquery= "SELECT * FROM {$main}"; //selects all columns from main table
-$mainresult = mysqli_query($connection, $mainquery);
-
-// Check for SQL errors
-if (!$mainresult) {
-    die ("Database query failed.");
-}
-?>
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="style.css">
-        <title>Pronto!</title>
-    </head>
-
-    <body>
-    <?php include "header-include.php"; ?>     
-                <main>
-                    <div class="recipeGrid">
-                    <?php while ($row = mysqli_fetch_assoc($mainresult)){ ?> <!-- open main while loop -->
-                        <a href="recipes.php?id=<?php echo $row['id']; ?>">
-                        <div class="recipeSlot">
-                        <img src="assets/<?php echo $row['thumbnail'];?>.jpg" width="400" alt="Recipe Thumbnail">
-                            <div class="onTop">
-                                <h1><?php echo $row['title']; ?></h1>
-                                <p><?php echo $row['subtitle']; ?></p>
-                            </div>
-                        </div>
-                        </a>
-                        <?php } ?>  <!--closing the main while loop -->
-                    </div>
-                </main>
-                <?php include "footer-include.php"; ?>
-    </body>
-
-    </html>
-    
-    <?php
-// Release Returned Data
-			mysqli_free_result($result);
-// Close Connection
-			mysqli_close($connection);
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Pronto!</title>
+</head>
+<header>
+    <img id="headerLogo" src="assets/logo.png" alt="Pronto!" >
+    <nav>
+        <div class="navSection">
+            <a href="about.php">About</a>
+        </div>
+        <div class="navSection">
+            <a href="index.php">Home</a>
+        </div>
+        <div class="navSection">
+            <a href="recipes.php">Recipes</a>
+        </div>
+    </nav> 
+    </div>
+</header>
+<body>
+    <main>
+        <div class="splash">
+            <h1>Welcome to Pronto!</h1>
+            <h2>Find the perfect recipe for you:</h2>
+            <div id="homeSearchbar">
+                <form action="search.php" id="search_form" method="POST">
+                    <input type="text" name="keyword" placeholder="Search...">
+                    <button type="submit" name="search_submit" value="Send">Submit</button>
+                </form>
+            <div id="tagsContainer">
+                <a href="tagSearch.php?tag=easy"><div class="tagButton">easy</div></a>
+                <a href="tagSearch.php?tag=full of flavor"><div class="tagButton">full of flavor</div></a>
+                <a href="tagSearch.php?tag=fruit"><div class="tagButton">fruit</div></a>
+                <a href="tagSearch.php?tag=comfort food"><div class="tagButton">comfort food</div></a>
+                <a href="tagSearch.php?tag=fancy"><div class="tagButton">fancy</div></a>
+                <a href="tagSearch.php?tag=stovetop"><div class="tagButton">stovetop</div></a>
+                <a href="tagSearch.php?tag=vegetarian"><div class="tagButton">vegetarian</div></a>
+                <a href="tagSearch.php?tag=cold"><div class="tagButton">cold</div></a>
+                <a href="tagSearch.php?tag=cheesy"><div class="tagButton">cheesy</div></a>
+                <a href="tagSearch.php?tag=oven"><div class="tagButton">oven</div></a>
+                <a href="tagSearch.php?tag=asian"><div class="tagButton">asian</div></a>
+                <a href="tagSearch.php?tag=stir fry"><div class="tagButton">stir fry</div></a>
+                <a href="tagSearch.php?tag=vegetables"><div class="tagButton">vegetables</div></a>
+                <a href="tagSearch.php?tag=seafood"><div class="tagButton">seafood</div></a>
+                <a href="tagSearch.php?tag=mexican"><div class="tagButton">mexican</div></a>
+                <a href="tagSearch.php?tag=burger"><div class="tagButton">burger</div></a>
+                <a href="tagSearch.php?tag=roast"><div class="tagButton">roast</div></a>
+                <a href="tagSearch.php?tag=pasta"><div class="tagButton">pasta</div></a>
+                <a href="tagSearch.php?tag=stew"><div class="tagButton">stew</div></a>
+                <a href="tagSearch.php?tag=sweet"><div class="tagButton">sweet</div></a>
+                <a href="tagSearch.php?tag=steak"><div class="tagButton">steak</div></a>
+                <a href="tagSearch.php?tag=salad"><div class="tagButton">salad</div></a>
+                <a href="tagSearch.php?tag=spicy"><div class="tagButton">spicy</div></a>
+                <a href="tagSearch.php?tag=pizza"><div class="tagButton">pizza</div></a>
+                <a href="tagSearch.php?tag=southwest"><div class="tagButton">southwest</div></a>
+                <a href="tagSearch.php?tag=healthy"><div class="tagButton">healthy</div></a>
+            </div>            
+        </div>
+    </main>
+</body>

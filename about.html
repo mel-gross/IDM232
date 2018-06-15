@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Pronto!Help</title>
+</head>
+
+<body>
+    <header>
+        <img id="headerLogo" src="assets/logo.png" alt="Pronto!">
+        <nav>
+            <div class="navSection">
+                <a href="about.php">About</a>
+            </div>
+            <div class="navSection">
+                <a href="index.php">Home</a>
+            </div>
+            <div class="navSection">
+                <a href="recipes.php">Recipes</a>
+            </div>
+        </nav>
+        <div class="filterContainer">
+            <div id="searchbar">
+                <form action="action_page.php" id="search_form" method="GET">
+                    <input type="text" name="keyword" placeholder="Search...">
+                    <button type="submit" name="search_submit" value="Send">Submit</button>
+                </form>
+            </div>
+        </div>
+    </header>';
+
+    <div class="aboutContainer">
+        <p>Welcome chef!
+            <br>I am glad you could join us. Pronto! is an online recipe collection of the finest meals broken down into simple
+            steps including images for you to follow. It is easy to browse through our number of recipes using different
+            style and ingredient filters to cater our cravings.
+            <br>But that is not all! Pronto! is also a community. You can upload your favorite personal recipes and share the
+            love with other chefs.</p>
+
+        <p>If you need help getting around the website click here:
+            <button id="help" onclick="openHelp(document.getElementById('popup').classList.toggle('show'))">Help</button>
+        </p>
+        <div id="popup">
+            <div id="helpContainer">
+                <button class="close" onclick="openHelp(document.getElementById('popup').classList.toggle('show'))" id="Xclose">X</button>
+                <p>Hello there! It seems like you might need some help getting around here? No worries here is a complete list
+                    of tasks possible on this website and how to get navigate them. I hope this helps and that you can find
+                    your perfect recipe to cook! Thank you for visiting Pronto!</p>
+                <p>Clicking the "Pronto!" logo or the "Home" button on the navbar menu will redirect you to
+                    <a href="index.html">Pronto!'s home page</a>.
+                </p>
+                <p>The
+                    <a href="about.html">About</a> button will bring you to a page with a information about the website.
+                </p>
+                <p>The
+                    <a href="recipes.html">Recipes</a> button will redirect you to the website's full catalog of recipes. I this page you can use
+                    filters and keywords to help you find the desired recipe. </p>
+                <p>You can also search for a recipe at any moment by using the searchbar positioned in the header of the website.
+                    All you need to do is click on the typebox and write a keyword for the recipe you are looking for. Click
+                    "Submit" and you will be redirected to the "Reipes" page with the filtered results of all recipes containing
+                    that word or that are tagged with it.</p>
+                <button class="close" onclick="openHelp()">Click here to close the help dialog box</button>
+            </div>
+        </div>
+
+        <p>Ok, ok... you caught me! This is a school project, and these provided recipes, yeeess.... But you can still do everything
+            you said you could and use this website as a reference for recipes and upload your own if you want.
+            <br> This is a project for my programming 2 class at Drexel, where I currently study Interactive Digital Media.
+            <br> If you are interested in my work here is my website:
+            <a href="http://melgross.net">melgross.net</a> :)</p>
+
+    </div>
+    <footer>
+        <div class="footerLinks">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Other link</a>
+        </div>
+        <p>&copy 2018 - Mel Gross</p>
+        </footer>
+</body>
+
+</html>

@@ -13,17 +13,7 @@ if (!$mainresult) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Pronto!</title>
-</head>
-
-<body>
-<?php include 'header-include.php'; ?>
+<?php require 'header-include.php'; ?>
     <div class="filterContainer">
         <div id="searchbar">
         <form action="search.php" id="search_form" method="POST">
@@ -33,13 +23,6 @@ if (!$mainresult) {
     </div>
     </header>
     <main>
-    <div class="filterContainer">
-        <div id="searchbar">
-        <form action="search.php" id="search_form" method="POST">
-            <input type="text" name="keyword" placeholder="Search...">
-            <button type="submit" name="search_submit" value="Send">Submit</button>
-        </form>
-    </div>
     </header> 
                 <main>
                     <div class="recipeGrid">

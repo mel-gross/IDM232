@@ -1,39 +1,28 @@
-/*---------------------Global--------------------*/
- 
-* {
-	box-sizing: border-box;
-}
+/* -----------------------------------GLOBAL-----------------------------------*/
 /*font styling*/
 *{
+    box-sizing: border-box;
 	font-family: Georgia, serif;
 }
-
-/*Center some text for mobile*/
-footer,
-nav,
-h1,
-h2,
-.onTop {
-	text-align: center;
+h1, h2, a{
+font-family: 'Gloria Hallelujah', cursive;
 }
-
 body {
-	grid-area: body;
 	width: 100vw;
-	margin: 0;
+    margin: 0;
 }
-/*---THE GRID---*/
-.grid{
-	display: grid;
-	width: 100vw;
-	grid-template-areas: 
-	"head"
-	"search"
-	"body"
-	"footer";	
-}
-/*---HEADER---*/
 
+/*LINKS*/
+a, button{
+    text-decoration: none;
+	color:  rgb(223, 209, 12);;
+}
+button{
+    background-color: teal;
+    border: 1px outset white;
+    border-radius: 6px;
+}
+/* HEADER */
 #headerLogo {
 	width: 100vw;
 }
@@ -67,6 +56,7 @@ nav a:hover {
 	color: rgb(255, 238, 0);
 }
 
+/* header on large screens */
 @media screen and (min-width: 760px) {
 	#headerLogo {
 	padding: 0 0 0 1rem;
@@ -78,6 +68,7 @@ nav a:hover {
 	header {
 		position: relative;
 		width: 100vw;
+		height: fit-content;
 		max-height: 18vh;
 		display: flex;
 		flex-flow: row nowrap;
@@ -93,7 +84,7 @@ nav a:hover {
 	nav a {
 		color: black;
 		text-decoration: none;
-		font: 10em;
+		
 	}
 	.navSection {
 		padding: 0 1rem;
@@ -102,7 +93,7 @@ nav a:hover {
 		background: black;
 	}
 	.navSection:hover>a {
-		color: rgb(255, 238, 0);
+		color: rgb(223, 209, 12);
 	}
 }
 
@@ -125,6 +116,7 @@ nav a:hover {
 	max-width: 100%;
 }
 
+/* search on large screens */
 @media screen and (min-width: 768px) {
 	.filterContainer{
 		position: absolute;
@@ -136,28 +128,221 @@ nav a:hover {
 
 /*---FOOTER---*/
 footer {
-	grid-area: foot;
+    padding: .5rem 0;
 	background-color: black;
-	color: rgb(255, 238, 0);
-}
-
-.footerLinks a {
-	color: rgb(255, 238, 0);
+    color: rgb(223, 209, 12);
+    text-align: center;
 }
 
 
-/*---------------End: Global-------------------*/
+/* -----------------------------------end:GLOBAL-------------------------------*/
 
-/*---------------------recipe PAGE----------------------*/
+/* -----------------------------------ABOUT------------------------------------*/
+.aboutContainer {
+    width: 70vw;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.aboutContainer p {
+    max-width: 60rem;
+}
+
+@media screen and (min-width: 768px) {
+    .aboutContainer p {
+        font-size: 150%;
+    }
+}
+/* popup help container */
+#popup{
+    position: relative;
+    display: none;
+}
+#helpContainer {
+    background-color: teal;
+    border-radius: 6px;
+    position: absolute;
+    width: 80vw;
+    height: auto;
+    z-index: 2;
+    padding: 1rem;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* buttons */
+#helpContainer p {
+    max-width: 60rem;
+}
+
+.close {
+    background: none;
+    border: 1px rgb(223, 209, 12);
+    color: rgb(223, 209, 12);
+}
+
+#Xclose {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+/* -----------------------------------end:ABOUT--------------------------------*/
+
+/* -----------------------------------HOME-------------------------------------*/
+.splash{
+    width: 100vw;
+    height: auto;
+    background: linear-gradient(0deg,  rgba(0, 0, 0, 0.48),  rgba(0, 0, 0, 0.267)), url("assets/tableOverhead.jpg");
+    background-size: cover;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: center;
+}
+#welcomeText{
+    width: 80vw;
+    max-width: 1000px;
+	position: relative;
+	background: rgba(0, 0, 0, 0.575);
+    color:  rgb(223, 209, 12);
+    margin: 1rem 0;
+    padding: 0 0 1rem 0;
+    border-radius: 6px;
+    align-self:center;
+}
+#homeSearchbar input[type=text] {
+    padding: 1rem;
+    border-radius: 6px;
+    width: 60%
+}
+#submitButton{
+    padding: 1rem .5rem;
+}
+#tagsContainer{
+    max-width: 1000px;
+    height: auto;
+    left: 50%;
+	border-radius: 6px;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1rem;
+    align-self: center;
+	justify-content: space-around;
+	align-content: center;
+}
+.tagButton{
+    flex-grow: 1;
+	background: teal;
+	border: .5px white;
+	border-radius: 6px;
+    padding: 1rem;
+    margin: .7rem;
+	text-decoration: none;
+	color: white;
+	font: 1.5rem 'Gill Sans';
+}
+.tagButton:hover, .tagButton:active{
+    color:  rgb(223, 209, 12);
+}
+/* home page on smaller screens */
+@media screen and (max-width:760px)
+{
+.splash{
+    width: 100vw;
+    height: auto;
+    display: inline-block;
+    background-image: url("assets/woodTexture.jpg");
+    background-repeat: repeat;
+}
+    #welcomeText{
+        border-radius: 0;
+        color: white;
+    }
+
+}
+/* -----------------------------------end:HOME---------------------------------*/
+
+/* -----------------------------------RECIPES----------------------------------*/
+
+/*  THE GRID WITH RECIPE IMAGES  */
+@media screen and (max-width:760px){
+    .recipeGrid {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100vw;
+        height: auto;
+        align-items: space-around;
+    }
+    
+    .recipeSlot img {
+        width: 100vw;
+        height: auto;
+    }}
+    
+    /*medium and large  screens*/
+    @media screen and (min-width: 760px) {
+        .recipeGrid {
+            padding: 2rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 1rem;
+        }
+        .recipeSlot img{
+            width: 100%;
+            z-index: 1;
+            position: relative;
+            object-fit: cover;
+        }
+        
+    }
+    #imageLink{
+            color: black;
+            text-decoration: none;
+    }
+    /*Title and  tags positioning*/
+    /*medium screens*/
+    @media screen and (min-width: 760px){
+        .onTop{
+            background-color: rgba(0, 0, 0, 0.48);
+            width: 100%;
+            color: white;
+            z-index: 2;
+            position: relative;
+            top: -15rem;
+        }
+        .onTop h1{
+            font-size: 1.4rem;
+        }
+    }
+    
+    /*large screens*/
+    @media screen and (min-width: 960px){
+        .onTop {
+            background-color: rgba(0, 0, 0, 0.48);
+            color: white;
+            width: 80%;
+            z-index: 2;
+            position: relative;
+            top: -12rem;
+        }}
+/* -----------------------------------end:RECIPES------------------------------*/
+
+/* -----------------------------------SINGLE RECIPE----------------------------*/
 
 /*center some text*/
 
 .description,
-.tags {
+.tags, .title, .step, .subtitle,.ingredients {
 	text-align: center;
 }
 
-/*description*/
+/*recipe header*/
 
 .recipeMainPic{
 	width: 100vw;
@@ -171,28 +356,34 @@ footer {
 	width: 80%;
 	margin: 0 auto;
 }
-
-/*the grid*/
 .displayImage img{
 	width: 100%;
 	height: auto;
 }
+/*the page grid*/
 @media screen and (min-width:768px){
 .RecipeHeader{
-	display: grid;
-	grid-template-areas: 
-	"image info";
+    height: auto;
+    display: flex;
+    flex-flow: row;
 }
 .displayImage{
-	grid-area: 'image';
-
+    width: 33vw;
+    height: auto;
+}
+#displayImage{
+    max-width:100%;
+    max-height:100%;
+    overflow: hidden;
 }
 .info{
-	grid-area: 'info';
+	width: 66vw;
 }}
 
 .title{
-	font-size: 3rem;
+    color: rgb(223, 209, 12);
+    font-size: 2rem;
+    padding: 0 .7rem;
 }
 .tags{
 /* remove lsit default settings */
@@ -201,8 +392,19 @@ footer {
 	padding: 0;
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-around;
-}
+	justify-content: space-around;}
+.tagElement {
+		background: teal !important;
+		border: .5px white;
+		border-radius: 6px;
+		padding: .5rem;
+		text-decoration: none;
+		color: white;
+		font: 1.5rem 'Gill Sans';
+    }
+    .tagElement:hover{
+        color: rgb(223, 209, 12);
+    }
 .ingredients{
 	position: relative;
 }
@@ -249,6 +451,8 @@ footer {
 		padding: 0 .5rem 0 .5rem;
 	}
 }
+/* -----------------------------------end: SINGLE RECIPE-----------------------*/
 
+/* -----------------------------------RESULTS----------------------------------*/
 
-/*--------------------END:recipe PAGE------------------*/
+/* -----------------------------------end:RESULTS------------------------------*/

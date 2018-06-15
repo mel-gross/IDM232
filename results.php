@@ -12,27 +12,18 @@ if (!$mainresult) {
 
 //grabing searched words from searchbar form
 $keyword= $_REQUEST['keyword'];
-echo $keyword;
+
 
 if (!$search_results) {
     echo 'No results';
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style2.css">
-    <title>Pronto!</title>
-</head>
-
+<?php require 'header-include.php'; ?>
+</header>
 <body>
-    <?php include 'header-include.php'; ?>
     <main>
     <div class="recipeGrid">
         <?php while ($row = mysqli_fetch_assoc($mainresult)){ ?> <!-- open main while loop -->
@@ -46,9 +37,8 @@ if (!$search_results) {
         <?php } ?>  <!--closing the main while loop -->
     </div>
     </main>    
-    <?php include "footer-include.php"; ?>
 </body>
-
+<?php require 'footer-include.php'; ?>
 </html>
     
 <?php

@@ -61,3 +61,10 @@ if (isset($_GET['tag'])){
 </body>
 
 </html>
+<?php
+// Release Returned Data
+            mysqli_free_result($queryResult);
+            mysqli_free_result($queryResult2);
+// Close Connection
+			mysqli_close($connection);
+?>

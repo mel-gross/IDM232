@@ -1,38 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Pronto!</title>
-</head>
-<header>
-    <img id="headerLogo" src="assets/logo.png" alt="Pronto!" >
-    <nav>
-        <div class="navSection">
-            <a href="about.php">About</a>
-        </div>
-        <div class="navSection">
-            <a href="index.php">Home</a>
-        </div>
-        <div class="navSection">
-            <a href="recipes.php">Recipes</a>
-        </div>
-    </nav> 
-    </div>
+<?php require 'header-include.php'; ?>
 </header>
 <body>
     <main>
         <div class="splash">
+            <div id="welcomeText">
             <h1>Welcome to Pronto!</h1>
             <h2>Find the perfect recipe for you:</h2>
             <div id="homeSearchbar">
                 <form action="search.php" id="search_form" method="POST">
                     <input type="text" name="keyword" placeholder="Search...">
-                    <button type="submit" name="search_submit" value="Send">Submit</button>
+                    <button id="submitButton" type="submit" name="search_submit" value="Send">Submit</button>
                 </form>
+                <br>
+            </div></div>
             <div id="tagsContainer">
                 <a href="tagSearch.php?tag=easy"><div class="tagButton">easy</div></a>
                 <a href="tagSearch.php?tag=full of flavor"><div class="tagButton">full of flavor</div></a>
@@ -64,3 +46,5 @@
         </div>
     </main>
 </body>
+<?php require 'footer-include.php'; ?>
+</html>

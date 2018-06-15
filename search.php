@@ -8,7 +8,7 @@ $search_text = $_POST['keyword'];
         echo 'No inputs';
         exit;
     }
-echo $search_text;
+
 // $forkey=[];
 // $id = ""
 
@@ -158,6 +158,7 @@ else {
                 </div>
             </a>
             <?php }} ?>
+            <?php if (!$queryResult) echo '<p>'.'Oh no, there seems to be no results for your search.'.'</p>'.'<p>'.'Please check your spelling, and try again. Sometimes casing might affect results.'.'</p>'.'<p>'.'Try also using more general words or ingredient names. You can find a list of existing tags on the'.'<a href="index.php"> homepage</a>'.'</p>' ?>
             </div>
             
     </main>
@@ -165,3 +166,9 @@ else {
 </body>
 
 </html>
+<?php
+// Release Returned Data
+			mysqli_free_result($result);
+// Close Connection
+			mysqli_close($connection);
+?>

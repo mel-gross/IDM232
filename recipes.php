@@ -12,18 +12,27 @@ if (!$mainresult) {
 }
 ?>
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="style.css">
-        <title>Pronto!</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Pronto!</title>
+</head>
 
-    <body>
-    <?php include 'header-include.php'; ?>
+<body>
+<?php include 'header-include.php'; ?>
+    <div class="filterContainer">
+        <div id="searchbar">
+        <form action="search.php" id="search_form" method="POST">
+            <input type="text" name="keyword" placeholder="Search...">
+            <button type="submit" name="search_submit" value="Send">Submit</button>
+        </form>
+    </div>
+    </header>
+    <main>
     <div class="filterContainer">
         <div id="searchbar">
         <form action="search.php" id="search_form" method="POST">
@@ -35,7 +44,7 @@ if (!$mainresult) {
                 <main>
                     <div class="recipeGrid">
                     <?php while ($row = mysqli_fetch_assoc($mainresult)){ ?> <!-- open main while loop -->
-                        <a id="imageLink" href="recipes.php?id=<?php echo $row['id']; ?>">
+                        <a id="imageLink" href="recipe.php?id=<?php echo $row['id']; ?>">
                         <div class="recipeSlot">
                         <img src="assets/<?php echo $row['thumbnail'];?>.jpg" width="400" alt="Recipe Thumbnail">
                             <div class="onTop">
@@ -47,9 +56,9 @@ if (!$mainresult) {
                         <?php } ?>  <!--closing the main while loop -->
                     </div>
                 </main>
-                <?php include "footer-include.php"; ?>
-    </body>
 
+    </body>
+    <?php require 'footer-include.php'; ?>
     </html>
     
     <?php

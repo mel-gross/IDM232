@@ -24,7 +24,7 @@ if (!$mainresult) {
     </header>
     <main>
     </header> 
-                <main>
+                <main> 
                     <div class="recipeGrid">
                     <?php while ($row = mysqli_fetch_assoc($mainresult)){ ?> <!-- open main while loop -->
                         <a id="imageLink" href="recipe.php?id=<?php echo $row['id']; ?>">

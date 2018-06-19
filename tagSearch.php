@@ -1,21 +1,31 @@
-<?php include "dbConnect-include.php";   
-$tagid="";
+<?php include "dbConnect-include.php";  
+ $tagid[]=""; 
+ $id="";
+ $thumbnail="";
+ $title="";
+ $subtitle="";
 if (isset($_GET['tag'])){
     //TAG search results
     $tag = ($_GET['tag']);
-    $tagsquery2 = "SELECT forkey FROM tags WHERE tag ='$tag'"; 
-    $tagsresult2 = mysqli_query($connection, $tagsquery2);
-    if (!tagsresult2) {echo 'Could not run query: ' . mysqli_error(); exit;}
-    $queryResult2 = mysqli_num_rows(tagsresult2);
-    while ($tagrow = mysqli_fetch_assoc($tagsresult2)){
-    $tagid= $tagrow['forkey'];}
+    $tagsquery = "SELECT forkey FROM tags WHERE tag ='$tag'"; //grabs foreign keys of all the matching tags
+    $tagsresult = mysqli_query($connection, $tagsquery);
+    if (!$tagsresult) {echo 'Could not run query1: ' . mysqli_error(); exit;}}
+  
+    while ($tagrow = mysqli_fetch_array($tagsresult)){ //running trhough the results
+    $tagid = $tagrow["forkey"]; 
+   } echo $tagid;
+   echo implode($tagid);
 
-    $result = mysqli_query($connection, "SELECT * FROM main WHERE id = $tagid");
-    if (!$result) {echo 'Could not run query: ' . mysqli_error(); exit;}
-    $queryResult = mysqli_num_rows($result);
-}
-
-
+    $result = mysqli_query($connection, "SELECT * FROM main WHERE id ='$tagid'"); //selects recipes with the id matching the foreign key
+    if (!$result) {echo 'Could not run query2: ' . mysqli_error(); exit;}
+    
+    while ($row = mysqli_fetch_assoc($result)){
+        $id= $row['id'];
+        $thumbnail= $row['thumbnail'];
+        $title= $row['title'];
+        $subtitle= $row['subtitle'];
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,21 +50,19 @@ if (isset($_GET['tag'])){
         </header>
         <main>
             <div class="recipeGrid">
-                <?php if ($queryResult > 0) { while ($row = mysqli_fetch_assoc($result)){ ?>
-                <a id="imageLink" href="recipes.php?id=<?php echo $row['id']; ?>">
+                <a id="imageLink" href="recipes.php?id=<?php echo $id; ?>">
                     <div class="recipeSlot">
-                        <img src="assets/<?php echo $row['thumbnail'];?>.jpg" width="400" alt="Recipe Thumbnail">
+                        <img src="assets/<?php echo $thumbnail;?>.jpg" width="400">
                         <div class="onTop">
                             <h1 id="title">
-                                <?php echo $row['title']; ?>
+                                <?php echo $title; ?>
                             </h1>
                             <p>
-                                <?php echo $row['subtitle']; ?>
+                                <?php echo $subtitle; ?>
                             </p>
                         </div>
                     </div>
                 </a>
-                <?php }} ?>
             </div>
         </main>
 
@@ -63,8 +71,8 @@ if (isset($_GET['tag'])){
 </html>
 <?php
 // Release Returned Data
-            mysqli_free_result($queryResult);
-            mysqli_free_result($queryResult2);
+            mysqli_free_result($result);
+            mysqli_free_result($tagsresult);
 // Close Connection
 			mysqli_close($connection);
 ?>

@@ -3,7 +3,9 @@
 
 //grab searched words
 if (isset($_POST['keyword'])){
-$search_text = $_POST['keyword'];
+$keyword = $_POST['keyword'];
+$search_text = ucfirst($keyword);
+echo $search_text;
     if (!$search_text) {
         echo 'No inputs';
         exit;
@@ -22,8 +24,30 @@ OR 'description' LIKE '%$search_text%'
 ");
 if (!$result) {echo 'Could not run query: ' . mysqli_error(); exit;}
 //how many results?
-$queryResult = mysqli_num_rows($result);}
-// echo "  main results:". $queryResult;
+$queryResult = mysqli_num_rows($result);
+echo " - Results counter:". $queryResult;}
+
+
+if (isset($_POST['keyword'])){
+    $keyword = $_POST['keyword'];
+    $search_text = $keyword;
+    echo $search_text;
+        if (!$search_text) {
+            echo 'No inputs';
+            exit;
+        }
+$result2 = mysqli_query($connection,
+"SELECT * FROM directions WHERE 
+step LIKE '%$search_text%' UNION
+SELECT * FROM ingredients WHERE 
+ingredient LIKE '%$search_text%' UNION
+SELECT * FROM tags WHERE 
+tag LIKE '%$search_text%'
+");
+if (!$result) {echo 'Could not run query: ' . mysqli_error(); exit;}
+//how many results?
+$queryResult2 = mysqli_num_rows($result2);
+echo " - Results counter2:". $queryResult2;}
 
 // elseif (isset($_GET['tag'])){
 //     //TAG search results
@@ -122,26 +146,15 @@ else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Pronto!</title>
-</head>
-
-<body>
-<?php include 'header-include.php'; ?>
-    <div class="filterContainer">
+<?php require 'header-include.php'; ?>
+<div class="filterContainer">
         <div id="searchbar">
         <form action="search.php" id="search_form" method="POST">
             <input type="text" name="keyword" placeholder="Search...">
             <button type="submit" name="search_submit" value="Send">Submit</button>
         </form>
     </div>
-    </header>
-    <main>
+</header>
         <div class="recipeGrid">
             <?php if ($queryResult > 0) { while ($row = mysqli_fetch_assoc($result)){ ?>
             <a id="imageLink" href="recipes.php?id=<?php echo $row['id']; ?>">
@@ -158,7 +171,7 @@ else {
                 </div>
             </a>
             <?php }} ?>
-            <?php if (!$queryResult) echo '<p>'.'Oh no, there seems to be no results for your search.'.'</p>'.'<p>'.'Please check your spelling, and try again. Sometimes casing might affect results.'.'</p>'.'<p>'.'Try also using more general words or ingredient names. You can find a list of existing tags on the'.'<a href="index.php"> homepage</a>'.'</p>' ?>
+            <?php if (!$queryResult) echo '<p>'.'Oh no, there seems to be no results for your search.'.'Please check your spelling, and try again. Sometimes casing might affect results.'.'Try also using more general words or ingredient names. You can find a list of existing tags on the <a href="index.php"> homepage</a>'.'</p>' ?>
             </div>
             
     </main>

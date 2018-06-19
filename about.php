@@ -19,9 +19,9 @@
             love with other chefs.</p>
 
         <p>If you need help getting around the website click here:
-            <button id="help" onclick="openHelp()">Help</button>
+            <button id="help" onclick="openHelp()" >Help</button>
         </p>
-        <div id="popup">
+        <div id="popup"  style="display:none;">
             <div id="helpContainer">
                 <button class="close" onclick="openHelp()" id="Xclose">X</button>
                 <h2>Help</h2>
@@ -48,7 +48,7 @@
             you said you could and use this website as a reference for recipes.
             <br> This is a project for my programming 2 class at Drexel, where I currently study Interactive Digital Media.
             <br> If you are interested in my work here is my website:
-            <button><a href="http://melgross.net">melgross.net</a></button> :)</p>
+            <a href="http://melgross.net"><button>melgross.net</button></a> :)</p>
 
     </div>
 </main>
@@ -60,8 +60,10 @@
         var popup = document.getElementById("popup");
         if (popup.style.display === "none") {
         popup.style.display = "block";
+        console.log('element to block');
     } else {
         popup.style.display = "none";
+        console.log('element to none');
     }
         
     }

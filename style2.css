@@ -108,7 +108,7 @@ nav a:hover {
 	width: 100%
 }
 
-.filterContainer input[type=text],button {
+.filterContainer input[type=text] {
 	display: table-cell;
 }
 
